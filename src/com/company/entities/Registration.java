@@ -14,6 +14,7 @@ public class Registration {
         setPatient_id(patient_id);
         setPassword(password);
     }
+    //bkdaskdjkasda
 
     public int getPatient_id() {
         return patient_id;
