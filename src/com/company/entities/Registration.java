@@ -17,6 +17,7 @@ public class Registration {
     //bkdaskdjkasda
 //xzc
     //645465
+
     //45465
     public int getPatient_id() {
         return patient_id;
