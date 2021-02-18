@@ -4,20 +4,20 @@ public class Patients {
     private int patient_id;
     private String name;
     private String surname;
-    private String salary;
+    private String expenditure;
     private int test_id;
     public Patients(){}
-    public Patients(String name, String surname,String salary,int test_id){
+    public Patients(String name, String surname,String expenditure,int test_id){
         setName(name);
         setSurname(surname);
-        setSalary(salary);
+        setExpenditure(expenditure);
         setTest_id(test_id);
     }
-    public Patients(int patient_id,String name, String surname,String salary,int test_id){
+    public Patients(int patient_id,String name, String surname,String expenditure,int test_id){
         setPatient_id(patient_id);
         setName(name);
         setSurname(surname);
-        setSalary(salary);
+        setExpenditure(expenditure);
         setTest_id(test_id);
     }
 
@@ -33,8 +33,8 @@ public class Patients {
         return surname;
     }
 
-    public String getSalary() {
-        return salary;
+    public String getExpenditure() {
+        return expenditure;
     }
 
     public int getTest_id() {
@@ -49,8 +49,8 @@ public class Patients {
         this.name = name;
     }
 
-    public void setSalary(String salary) {
-        this.salary = salary;
+    public void setExpenditure(String expenditure) {
+        this.expenditure = expenditure;
     }
 
     public void setSurname(String surname) {
