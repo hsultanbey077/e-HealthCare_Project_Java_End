@@ -19,7 +19,9 @@ public class Registration {
     public int getPatient_id() {
         return patient_id;
     }
-
+public  int getcost(){
+        return 5 ;
+}
     public int getRegistration_id() {
         return registration_id;
     }
