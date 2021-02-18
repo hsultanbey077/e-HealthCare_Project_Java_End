@@ -15,7 +15,7 @@ public class Registration {
         setPassword(password);
     }
     //bkdaskdjkasda
-//xzczxcz
+//xzc
     //645465
     //45465
     public int getPatient_id() {
