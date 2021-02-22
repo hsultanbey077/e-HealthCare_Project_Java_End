@@ -1,9 +1,13 @@
 package com.company.entities;
 
+import java.util.ArrayList;
+
 public class Department {
     private int dep_id;
     private String dep_name;
     private String location;
+    private String dep_phone;
+    private ArrayList<Integer> doctors_id;
     public Department(){}
     public Department(String name,String location){
         setDep_name(name);
@@ -13,6 +17,21 @@ public class Department {
         setDep_id(dep_id);
         setDep_name(name);
         setLocation(location);
+    }
+
+    public Department(String dep_name, String location, String dep_phone, ArrayList<Integer> doctors_id) {
+        this.dep_name = dep_name;
+        this.location = location;
+        this.dep_phone = dep_phone;
+        this.doctors_id = doctors_id;
+    }
+
+    public String getDep_phone() {
+        return dep_phone;
+    }
+
+    public void setDep_phone(String dep_phone) {
+        this.dep_phone = dep_phone;
     }
 
     public int getDep_id() {
@@ -37,5 +56,13 @@ public class Department {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public ArrayList<Integer> getDoctors_id() {
+        return doctors_id;
+    }
+
+    public void setDoctors_id(ArrayList<Integer> doctors_id) {
+        this.doctors_id = doctors_id;
     }
 }
