@@ -50,7 +50,7 @@ public class DoctorRepo implements IDoctorsRepo {
     }
 
     @Override
-    public IDoctorsRepo getDoctorById(int doc_id) {
+    public Doctors getDoctorById(int doc_id) {
             Connection con = null;
             try {
                 con = db.getConnection();
@@ -66,7 +66,7 @@ public class DoctorRepo implements IDoctorsRepo {
                             rs.getString("doc_surname"),
                             rs.getInt("patient_id"));
 
-                    return (IDoctorsRepo) doctors;
+                    return doctors;
 
                 }
             } catch (SQLException throwables) {
@@ -119,6 +119,8 @@ public class DoctorRepo implements IDoctorsRepo {
         }
         return null;
     }
+
+
 
 
 }

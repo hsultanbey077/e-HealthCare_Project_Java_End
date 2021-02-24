@@ -4,18 +4,23 @@ public class Patients {
     private int patient_id;
     private String name;
     private String surname;
-    private String expenditure;
+    private double expenditure;
     private int test_id;
     private String test_result;
-    public Patients(){}
-    public Patients(String name, String surname,String expenditure,int test_id,String test_result){
+
+    public Patients(){
+
+    }
+
+    public Patients(String name, String surname,double expenditure,int test_id,String test_result){
         setName(name);
         setSurname(surname);
         setExpenditure(expenditure);
         setTest_id(test_id);
         setTest_result(test_result);
     }
-    public Patients(int patient_id,String name, String surname,String expenditure,int test_id,String test_result){
+
+    public Patients(int patient_id,String name, String surname,double expenditure,int test_id,String test_result){
         setPatient_id(patient_id);
         setName(name);
         setSurname(surname);
@@ -36,7 +41,7 @@ public class Patients {
         return surname;
     }
 
-    public String getExpenditure() {
+    public double getExpenditure() {
         return expenditure;
     }
 
@@ -60,7 +65,7 @@ public class Patients {
         this.name = name;
     }
 
-    public void setExpenditure(String expenditure) {
+    public void setExpenditure(double expenditure) {
         this.expenditure = expenditure;
     }
 

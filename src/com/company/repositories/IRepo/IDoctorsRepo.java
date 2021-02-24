@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IDoctorsRepo {
     boolean createDoctor(Doctors doctor);
-    IDoctorsRepo getDoctorById(int patient_id);
+    Doctors getDoctorById(int patient_id);
     List<Doctors> getAllDoctors();
 
 }
