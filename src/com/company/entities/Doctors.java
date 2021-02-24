@@ -5,7 +5,11 @@ public class Doctors {
     private String doc_name;
     private String doc_surname;
     private int patient_id;
-    public Doctors(){}
+
+    public Doctors(){
+
+    }
+
     public Doctors(String doc_name, String doc_surname, int patient_id){
         setDoc_name(doc_name);
         setDoc_surname(doc_surname);
@@ -21,7 +25,6 @@ public class Doctors {
     public int getDoc_id() {
         return doc_id;
     }
-    //sdfdsffdsfdsfsdfd
     public String getDoc_name() {
         return doc_name;
     }

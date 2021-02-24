@@ -37,6 +37,7 @@ public class DepartmentRepo implements IDepartmentRepo {
             classNotFoundException.printStackTrace();
         }finally {
             try{
+                assert con != null;
                 con.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -49,13 +50,13 @@ public class DepartmentRepo implements IDepartmentRepo {
     public boolean addDoctors(Department department) {
         Connection con = null;
         try {
-            Integer department_id = this.getDepartmentId(department);
+            int department_id = this.getDepartmentId(department);
 
             if (department_id == 0) {
                 return false;
             }
             String sql = "INSERT INTO department_doctor(department_id, doctor_id) VALUES (?,?)";
-            Boolean executed;
+            boolean executed;
 
             ArrayList<Boolean> booleans = new ArrayList<>();
             for (Integer doctor_id: department.getDoctors_id()) {
