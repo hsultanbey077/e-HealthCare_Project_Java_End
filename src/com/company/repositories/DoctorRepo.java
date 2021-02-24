@@ -7,14 +7,22 @@ import com.company.repositories.IRepo.IDoctorsRepo;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class DoctorRepo implements IDoctorsRepo {
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_RED = "\u001B[31m";
 
     private final IDB db;
 
     public DoctorRepo(IDB db) {
         this.db = db;
     }
+
+    Scanner scanner = new Scanner(System.in);
 
     @Override
     public boolean createDoctor(Doctors doctor) {
@@ -51,38 +59,38 @@ public class DoctorRepo implements IDoctorsRepo {
 
     @Override
     public Doctors getDoctorById(int doc_id) {
-            Connection con = null;
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT * FROM Doctors WHERE id=?";
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setInt(1, doc_id);
+
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Doctors doctors = new Doctors(rs.getInt("doc_id"),
+                        rs.getString("doc_name"),
+                        rs.getString("doc_surname"),
+                        rs.getInt("patient_id"));
+
+                return doctors;
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
             try {
-                con = db.getConnection();
-                String sql = "SELECT * FROM Doctors WHERE id=?";
-                PreparedStatement st = con.prepareStatement(sql);
-
-                st.setInt(1, doc_id);
-
-                ResultSet rs = st.executeQuery();
-                if (rs.next()) {
-                    Doctors doctors = new Doctors(rs.getInt("doc_id"),
-                            rs.getString("doc_name"),
-                            rs.getString("doc_surname"),
-                            rs.getInt("patient_id"));
-
-                    return doctors;
-
-                }
+                assert con != null;
+                con.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    assert con != null;
-                    con.close();
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
             }
-            return null;
         }
+        return null;
+    }
 
     @Override
     public List<Doctors> getAllDoctors() {
@@ -120,7 +128,33 @@ public class DoctorRepo implements IDoctorsRepo {
         return null;
     }
 
+    @Override
+    public Doctors deleteDoctorByID(int id) {
 
+        Connection con = null;
 
+        try {
+            con = db.getConnection();
 
+            PreparedStatement st = con.prepareStatement("DELETE FROM Doctors WHERE Doctor_id = ?");
+
+            st.setInt(1,id);
+            st.execute();
+
+            System.out.println(ANSI_RED + "Record has been deleted! \n" + ANSI_RESET);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                assert con != null;
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return null;
+    }
 }
