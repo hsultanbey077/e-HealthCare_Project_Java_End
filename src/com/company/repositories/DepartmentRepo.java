@@ -80,6 +80,7 @@ public class DepartmentRepo implements IDepartmentRepo {
             classNotFoundException.printStackTrace();
         }finally {
             try{
+                assert con != null;
                 con.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -110,10 +111,12 @@ private Integer getDepartmentId(Department department) {
         classNotFoundException.printStackTrace();
     }finally {
         try{
+            assert con != null;
             con.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
     return 0;
-}}
+    }
+}

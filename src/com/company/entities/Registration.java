@@ -14,15 +14,11 @@ public class Registration {
         setPatient_id(patient_id);
         setPassword(password);
     }
-    //bkdaskdjkasda
-//xzc
-    //645465
 
-    //45465
     public int getPatient_id() {
         return patient_id;
     }
-public  int getcost(){
+    public  int getcost(){
         return 5 ;
 }
     public int getRegistration_id() {
