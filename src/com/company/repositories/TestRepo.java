@@ -10,9 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TestRepo implements ITestRepo {
+
     private final IDB db;
-
-
 
     public TestRepo(IDB db) {
         this.db = db;
@@ -109,6 +108,6 @@ public class TestRepo implements ITestRepo {
         }
         return 0;
     }
-    }
+}
 
 

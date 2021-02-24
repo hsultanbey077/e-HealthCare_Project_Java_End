@@ -8,11 +8,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class RegistrationRepo implements IRegistrationRepo {
+
     private final IDB db;
 
     public RegistrationRepo(IDB idb) {
         this.db = idb;
     }
+
     @Override
     public boolean createRegistration(Registration registration) {
         Connection con = null;
