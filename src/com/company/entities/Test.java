@@ -6,18 +6,21 @@ public class Test {
     private String test_result;
     private String name;
     private String surname;
-    public Test(){}
+
+    public Test(){
+
+    }
+
     public Test(String test_date, String test_result){
         setTest_date(test_date);
         setTest_result(test_result);
     }
+
     public Test(int test_id,String test_date, String test_result){
         setTest_id(test_id);
         setTest_date(test_date);
         setTest_result(test_result);
     }
-
-
 
     public int getTest_id() {
         return test_id;
