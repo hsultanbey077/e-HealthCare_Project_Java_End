@@ -9,4 +9,5 @@ public interface ITestRepo {
     boolean createTest(Test test);
     String getTestResult(Test test);
     int getTestId(Test test);
+    Test UpdateTest(int id);
 }

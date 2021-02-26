@@ -11,6 +11,11 @@ import java.sql.SQLException;
 
 public class TestRepo implements ITestRepo {
 
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_RED = "\u001B[31m";
+
     private final IDB db;
 
     public TestRepo(IDB db) {
@@ -108,6 +113,36 @@ public class TestRepo implements ITestRepo {
         }
         return 0;
     }
+
+    @Override
+    public Test UpdateTest(int id) {
+        Connection con = null;
+
+        try {
+            con = db.getConnection();
+
+            PreparedStatement st = con.prepareStatement("Update FROM Test WHERE test_id = ?");
+
+            st.setInt(1,id);
+            st.executeUpdate();
+
+            System.out.println(ANSI_RED + "Record has been updated! \n" + ANSI_RESET);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                assert con != null;
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return null;
+    }
+
 }
 
 
