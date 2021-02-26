@@ -20,6 +20,11 @@ public class MyApplication {
             System.out.println();
             System.out.println("Welcome to My Application");
             System.out.println("Select option:");
+
+            /**
+             * OPTIONS
+             */
+
             System.out.println("0. Exit");
             System.out.println();
             try {//it is how works my options
@@ -58,8 +63,6 @@ public class MyApplication {
             int num = scanner.nextInt();
             ids.add(num);
         }
-
-
 
         String response = controller.createDepartment(name, location, phone, ids);
         System.out.println(response);
