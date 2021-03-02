@@ -53,11 +53,6 @@ public class PatientRepo implements IPatientRepo {
     }
 
     @Override
-    public Patients getTestResult(int test_result) {
-        return null;
-    }
-
-    @Override
     public Patients getPatientById(int patient_id) {
         Connection con = null;
         try {
