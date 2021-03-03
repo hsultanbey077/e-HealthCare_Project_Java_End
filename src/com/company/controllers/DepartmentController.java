@@ -5,7 +5,7 @@ import com.company.repositories.IRepo.IDepartmentRepo;
 
 import java.util.ArrayList;
 
-public class DepartmentController {
+public class DepartmentController  {
     private final IDepartmentRepo departmentRepo;
 
     public DepartmentController(IDepartmentRepo departmentRepo) {

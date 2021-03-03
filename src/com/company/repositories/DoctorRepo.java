@@ -30,12 +30,12 @@ public class DoctorRepo implements IDoctorsRepo {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO Doctors(doc_name,doc_surname,patient_id) VALUES (?,?,?)";
+            String sql = "INSERT INTO Doctors(doc_name,doc_surname) VALUES (?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, doctor.getDoc_name());
             st.setString(2, doctor.getDoc_surname());
-            st.setInt(3, doctor.getPatient_id());
+
 
             st.execute();
 
@@ -59,36 +59,7 @@ public class DoctorRepo implements IDoctorsRepo {
 
     @Override
     public Doctors getDoctorById(int doc_id) {
-        Connection con = null;
-        try {
-            con = db.getConnection();
-            String sql = "SELECT * FROM Doctors WHERE id=?";
-            PreparedStatement st = con.prepareStatement(sql);
 
-            st.setInt(1, doc_id);
-
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                Doctors doctors = new Doctors(rs.getInt("doc_id"),
-                        rs.getString("doc_name"),
-                        rs.getString("doc_surname"),
-                        rs.getInt("patient_id"));
-
-                return doctors;
-
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                assert con != null;
-                con.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        }
         return null;
     }
 
@@ -105,8 +76,8 @@ public class DoctorRepo implements IDoctorsRepo {
             while (rs.next()) {
                 Doctors doctors = new Doctors(rs.getInt("doc_id"),
                         rs.getString("doc_name"),
-                        rs.getString("doc_surname"),
-                        rs.getInt("patient_id"));
+                        rs.getString("doc_surname")
+                       );
 
                 Doctors.add(doctors);
             }

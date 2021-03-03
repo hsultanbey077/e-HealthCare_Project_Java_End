@@ -21,12 +21,12 @@ public class RegistrationRepo implements IRegistrationRepo {
 
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO registration(registration_id, patient_id, password) VALUES(?,?,?)";
+            String sql = "INSERT INTO registration(registration_id, patient_id) VALUES(?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setInt(1, registration.getRegistration_id());
             st.setInt(2, registration.getPatient_id());
-            st.setString(3, registration.getPassword());
+
 
             return st.execute();
 

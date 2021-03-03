@@ -2,17 +2,17 @@ package com.company;
 
 import com.company.DB.DB;
 import com.company.DB.interfaces.IDB;
-import com.company.controllers.DepartmentController;
-import com.company.repositories.DepartmentRepo;
-import com.company.repositories.IRepo.IDepartmentRepo;
+//import com.company.controllers.DepartmentController;
+import com.company.repositories.IRepo.ITestRepo;
+import com.company.repositories.TestRepo;
 
 public class main {
     public static void main(String[] args) throws Exception {
         // running of our application
 
         IDB db = new DB();
-        IDepartmentRepo repo = new DepartmentRepo(db);
-        DepartmentController controller = new DepartmentController(repo);
+        ITestRepo repo = new TestRepo(db);
+        TestController controller = new TestController(repo);
         MyApplication app = new MyApplication(controller);
         app.start();
 
