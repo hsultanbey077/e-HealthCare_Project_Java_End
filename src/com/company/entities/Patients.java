@@ -23,6 +23,9 @@ public class Patients {
 
     }
 
+    public Patients(int patient_id, String name, String surname, double expenditure, int test_id, String test_result) {
+    }
+
     public int getPatient_id() {
         return patient_id;
     }

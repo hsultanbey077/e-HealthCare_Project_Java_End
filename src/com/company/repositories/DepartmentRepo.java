@@ -2,7 +2,6 @@ package com.company.repositories;
 
 import com.company.DB.interfaces.IDB;
 import com.company.entities.Department;
-import com.company.entities.Test;
 import com.company.repositories.IRepo.IDepartmentRepo;
 
 import java.sql.Connection;
@@ -90,8 +89,6 @@ public class DepartmentRepo implements IDepartmentRepo {
         }
         return false;
     }
-
-
 
     private Integer getDepartmentId(Department department) {
     Connection con = null;
