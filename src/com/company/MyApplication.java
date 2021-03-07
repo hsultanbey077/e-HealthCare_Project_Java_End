@@ -8,6 +8,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyApplication {
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_RED = "\u001B[31m";
+
     private final RegistrationController controller;
     private final PatientController controller2;
     private final DoctorController controller3;
@@ -42,8 +48,6 @@ public class MyApplication {
                 System.out.println("1.Create Registration");
                 System.out.println("2.Create Patient");
                 System.out.println("3.Create Doctor");
-                System.out.println("0. Exit");
-
                 System.out.println("0. Exit");
                 System.out.println();
                 try {//it is how works my options
