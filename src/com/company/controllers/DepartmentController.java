@@ -4,6 +4,7 @@ import com.company.entities.Department;
 import com.company.repositories.IRepo.IDepartmentRepo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DepartmentController  {
     private final IDepartmentRepo departmentRepo;
@@ -23,5 +24,9 @@ public class DepartmentController  {
             return "ERROR!";
         } return "ADDED!";
 
+    }
+    public List<Department> getLocation(){
+        List<Department> departments= departmentRepo.getLocation();
+        return departments;
     }
 }

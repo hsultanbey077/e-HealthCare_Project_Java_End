@@ -1,22 +1,27 @@
 package com.company;
 
+import com.company.controllers.DepartmentController;
 import com.company.controllers.DoctorController;
 import com.company.controllers.PatientController;
 import com.company.controllers.RegistrationController;
+import com.company.entities.Department;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyApplication {
     private final RegistrationController controller;
     private final PatientController controller2;
     private final DoctorController controller3;
+    private final DepartmentController controller4;
     private final Scanner scanner;
 
-    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3) {
+    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3, DepartmentController controller4) {
         this.controller = controller;
         this.controller2 = controller2;
         this.controller3 = controller3;
+        this.controller4 = controller4;
         scanner = new Scanner(System.in);
     }
 
@@ -70,6 +75,7 @@ public class MyApplication {
                 System.out.println("Welcome to My Application");
                 System.out.println("Select option:");
                 System.out.println("1.Give Result");
+                System.out.println("2.Get Location");
                 /**
                  * OPTIONS
                  */
@@ -81,7 +87,9 @@ public class MyApplication {
                     int option = scanner.nextInt();
                     if (option == 1) {
                         giveResults();
-                    } else {
+                    } else if(option==2){
+                        getLocation();
+                    }else {
                         break;
                     }
                 } catch (InputMismatchException e) {
@@ -138,6 +146,10 @@ public class MyApplication {
         System.out.println("Please enter surname");
         String surname=scanner.next();
         String response = controller3.createDoctor(doc_id,name,surname);
+        System.out.println(response);
+    }
+    public void getLocation(){
+        List<Department> response = controller4.getLocation();
         System.out.println(response);
     }
     //    public void createDepMenu() {
