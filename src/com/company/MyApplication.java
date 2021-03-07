@@ -18,12 +18,22 @@ public class MyApplication {
         scanner = new Scanner(System.in);
     }
 
+
     public void start() {//options of my applications
+        System.out.println("Please enter who are you?");
+        System.out.println("1.admin");
+        System.out.println("2.patient");
+        int choose = scanner.nextInt();
+        String admin ="admin";
+        String patient="patient";
+        if(choose==1){
+
         while (true) {
             System.out.println();
             System.out.println("Welcome to My Application");
             System.out.println("Select option:");
-            System.out.println("1.Give Result");
+            System.out.println("1.Create Registration");
+
             /**
              * OPTIONS
              */
@@ -34,7 +44,7 @@ public class MyApplication {
                 System.out.print("Enter option (1-7): ");
                 int option = scanner.nextInt();
                 if (option == 1) {
-                    giveResults();
+                   Registration();
                 } else {
                     break;
                 }
@@ -47,6 +57,37 @@ public class MyApplication {
 
             System.out.println("----------------------------");
         }
+    }else if(choose==2){
+            while (true) {
+                System.out.println();
+                System.out.println("Welcome to My Application");
+                System.out.println("Select option:");
+                System.out.println("1.Give Result");
+                /**
+                 * OPTIONS
+                 */
+
+                System.out.println("0. Exit");
+                System.out.println();
+                try {//it is how works my options
+                    System.out.print("Enter option (1-7): ");
+                    int option = scanner.nextInt();
+                    if (option == 1) {
+                        giveResults();
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Input must be integer");
+                    scanner.nextLine(); // to ignore incorrect input
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
+                System.out.println("----------------------------");
+            }
+        }
+
     }
 
 //    public void createDepMenu() {
@@ -69,6 +110,16 @@ public class MyApplication {
 //        String response = controller.createDepartment(name, location, phone, ids);
 //        System.out.println(response);
 //    }
+        public void Registration(){
+            System.out.println("Please enter your registration");
+            int reg_id = scanner.nextInt();
+            System.out.println("Please enter your patient");
+            int pat_id = scanner.nextInt();
+            System.out.println("Please enter your doctor");
+            int doctor_id = scanner.nextInt();
+            System.out.println("Please enter your test_id");
+            int test_id = scanner.nextInt();
+        }
 
         public void giveResults() {
             System.out.println("Please enter your patient_id");
