@@ -5,7 +5,6 @@ public class Patients {
     private String name;
     private String surname;
 
-
     public Patients(){
 
     }

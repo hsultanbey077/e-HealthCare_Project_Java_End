@@ -6,8 +6,10 @@ public class Test {
     private String test_name;
     private int cost;
 
+    //default constructor
   public Test(){}
 
+    //
     public Test(String test_date, String test_name, int cost) {
         this.test_date = test_date;
         this.test_name = test_name;

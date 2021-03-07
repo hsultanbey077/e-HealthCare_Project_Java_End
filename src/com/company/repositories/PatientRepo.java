@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class PatientRepo implements IPatientRepo {
+    //constant variable 'db'
     private final IDB db;
 
     public PatientRepo(IDB db) {
@@ -129,8 +130,8 @@ public class PatientRepo implements IPatientRepo {
             st.setInt(1, pat_id);
             ResultSet rs = st.executeQuery();
 
-            String name=null;
-            String surname=null;
+            String name = null;
+            String surname = null;
             if(rs.next()){
                 name=rs.getString("name");
                 surname=rs.getString("surname");
@@ -145,7 +146,7 @@ public class PatientRepo implements IPatientRepo {
                 result=rs2.getString("test_result");
                 id=rs2.getInt("test_id");
             }
-            Method1 main = ((a, b,c,d) -> (a+" "+b+" "+c+" "+d));
+            Method1 main = ((a, b,c,d) -> (a + " " + b + " " + c + " " + d));
             String response= main.giveTestResult(name,surname,result,id);
             return response;
         } catch (SQLException throwables) {
