@@ -1,73 +1,80 @@
 package com.company;
 
-import com.company.controllers.DepartmentController;
 import com.company.controllers.DoctorController;
 import com.company.controllers.PatientController;
 import com.company.controllers.RegistrationController;
-import com.company.entities.Department;
 
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class MyApplication {
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_RED = "\u001B[31m";
+
     private final RegistrationController controller;
     private final PatientController controller2;
     private final DoctorController controller3;
-    private final DepartmentController controller4;
     private final Scanner scanner;
 
-    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3, DepartmentController controller4) {
+    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3) {
         this.controller = controller;
         this.controller2 = controller2;
         this.controller3 = controller3;
-        this.controller4 = controller4;
         scanner = new Scanner(System.in);
     }
-
+//44
 
     public void start() {//options of my applications
         System.out.println("Please enter who are you?");
         System.out.println("1.admin");
         System.out.println("2.patient");
         int choose = scanner.nextInt();
-        String admin ="Admin";
-        String patient="Patient";
+
+        String admin = " Admin ";
+        String patient = " Patient ";
         if(choose==1){
 
-        while (true) {
-            System.out.println();
-            System.out.println("Welcome to My Application");
-            System.out.println("Select option:");
-            System.out.println("1.Create Registration");
-            System.out.println("2.Create Patient");
-            System.out.println("3.Create Doctor");
-            /**
-             * OPTIONS
-             */
+            int password_input = scanner.nextInt();
+            int password = 123456789;
 
-            System.out.println("0. Exit");
-            System.out.println();
-            try {//it is how works my options
-                System.out.print("Enter option (1-7): ");
-                int option = scanner.nextInt();
-                if (option == 1) {
-                   Registration();
-                }else if(option==2){
-                    createPatient();
-                } else if (option==3){
-                    createDoctor();
-                }else {
-                    break;
+        if(password_input == password) {
+            while (true) {
+                System.out.println();
+                System.out.println("Welcome to My Application");
+                System.out.println("Select option:");
+                System.out.println("1.Create Registration");
+                System.out.println("2.Create Patient");
+                System.out.println("3.Create Doctor");
+                System.out.println("0. Exit");
+                System.out.println();
+                try {//it is how works my options
+                    System.out.print("Enter option (1-7): ");
+                    int option = scanner.nextInt();
+                    if (option == 1) {
+                        Registration();
+                    } else if (option == 2) {
+                        createPatient();
+                    } else if (option == 3) {
+                        createDoctor();
+                    } else if(option == 0){
+                        System.exit(0);
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Input must be integer");
+                    scanner.nextLine(); // to ignore incorrect input
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
-            } catch (InputMismatchException e) {
-                System.out.println("Input must be integer");
-                scanner.nextLine(); // to ignore incorrect input
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
 
-            System.out.println("----------------------------");
+                System.out.println("----------------------------");
+            }
+        }else {
+            System.out.println("Wrong password detected!\nPlease, try again ");
         }
     }else if(choose==2){
             while (true) {
@@ -75,11 +82,6 @@ public class MyApplication {
                 System.out.println("Welcome to My Application");
                 System.out.println("Select option:");
                 System.out.println("1.Give Result");
-                System.out.println("2.Get Location");
-                /**
-                 * OPTIONS
-                 */
-
                 System.out.println("0. Exit");
                 System.out.println();
                 try {//it is how works my options
@@ -87,9 +89,9 @@ public class MyApplication {
                     int option = scanner.nextInt();
                     if (option == 1) {
                         giveResults();
-                    } else if(option==2){
-                        getLocation();
-                    }else {
+                    } else if(option == 0) {
+                       System.exit(0);
+                    } else {
                         break;
                     }
                 } catch (InputMismatchException e) {
@@ -104,7 +106,6 @@ public class MyApplication {
         }
 
     }
-
 
         public void Registration(){
             System.out.println("Please enter your registration");
@@ -148,10 +149,6 @@ public class MyApplication {
         String response = controller3.createDoctor(doc_id,name,surname);
         System.out.println(response);
     }
-    public void getLocation(){
-        List<Department> response = controller4.getLocation();
-        System.out.println(response);
-    }
     //    public void createDepMenu() {
 //        System.out.println("Please enter name");
 //        String name = scanner.next();
@@ -172,5 +169,10 @@ public class MyApplication {
 //        String response = controller.createDepartment(name, location, phone, ids);
 //        System.out.println(response);
 //    }
+
+    private <T> void password(T param1){
+
+
+    }
 
 }
