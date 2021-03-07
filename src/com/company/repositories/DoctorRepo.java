@@ -30,11 +30,11 @@ public class DoctorRepo implements IDoctorsRepo {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO Doctors(doc_name,doc_surname) VALUES (?,?)";
+            String sql = "INSERT INTO Doctors(doc_id,doc_name,doc_surname) VALUES (?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
-
-            st.setString(1, doctor.getDoc_name());
-            st.setString(2, doctor.getDoc_surname());
+            st.setInt(1,doctor.getDoc_id());
+            st.setString(2, doctor.getDoc_name());
+            st.setString(3, doctor.getDoc_surname());
 
 
             st.execute();

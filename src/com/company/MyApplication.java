@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.controllers.DoctorController;
 import com.company.controllers.PatientController;
 import com.company.controllers.RegistrationController;
 
@@ -9,11 +10,13 @@ import java.util.Scanner;
 public class MyApplication {
     private final RegistrationController controller;
     private final PatientController controller2;
+    private final DoctorController controller3;
     private final Scanner scanner;
 
-    public MyApplication(RegistrationController controller, PatientController controller2) {
+    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3) {
         this.controller = controller;
         this.controller2 = controller2;
+        this.controller3 = controller3;
         scanner = new Scanner(System.in);
     }
 
@@ -23,8 +26,8 @@ public class MyApplication {
         System.out.println("1.admin");
         System.out.println("2.patient");
         int choose = scanner.nextInt();
-        String admin ="admin";
-        String patient="patient";
+        String admin ="Admin";
+        String patient="Patient";
         if(choose==1){
 
         while (true) {
@@ -33,6 +36,7 @@ public class MyApplication {
             System.out.println("Select option:");
             System.out.println("1.Create Registration");
             System.out.println("2.Create Patient");
+            System.out.println("3.Create Doctor");
             /**
              * OPTIONS
              */
@@ -46,7 +50,9 @@ public class MyApplication {
                    Registration();
                 }else if(option==2){
                     createPatient();
-                } else {
+                } else if (option==3){
+                    createDoctor();
+                }else {
                     break;
                 }
             } catch (InputMismatchException e) {
@@ -114,7 +120,7 @@ public class MyApplication {
             String response = controller2.giveTestResult(pat_id,test_id);
             System.out.println(response);
         }
-    public void createPatient(){
+         public void createPatient(){
         System.out.println("Please enter id");
         int patient_id = scanner.nextInt();
         System.out.println("Please enter name");
@@ -122,6 +128,16 @@ public class MyApplication {
         System.out.println("Please enter surname");
         String surname = scanner.next();
         String response = controller2.createPatient(patient_id,name,surname);
+        System.out.println(response);
+    }
+    public void createDoctor(){
+        System.out.println("Please enter id");
+        int doc_id=scanner.nextInt();
+        System.out.println("Please enter name");
+        String name = scanner.next();
+        System.out.println("Please enter surname");
+        String surname=scanner.next();
+        String response = controller3.createDoctor(doc_id,name,surname);
         System.out.println(response);
     }
     //    public void createDepMenu() {

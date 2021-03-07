@@ -2,8 +2,11 @@ package com.company;
 
 import com.company.DB.DB;
 import com.company.DB.interfaces.IDB;
+import com.company.controllers.DoctorController;
 import com.company.controllers.PatientController;
 import com.company.controllers.RegistrationController;
+import com.company.repositories.DoctorRepo;
+import com.company.repositories.IRepo.IDoctorsRepo;
 import com.company.repositories.IRepo.IPatientRepo;
 import com.company.repositories.IRepo.IRegistrationRepo;
 import com.company.repositories.PatientRepo;
@@ -15,9 +18,11 @@ public class main {
         IDB db = new DB();
         IPatientRepo repo=new PatientRepo(db);
         IRegistrationRepo repo2 = new RegistrationRepo(db);
+        IDoctorsRepo repo3=new DoctorRepo(db);
         PatientController controller = new PatientController(repo);
         RegistrationController controller2=new RegistrationController(repo2);
-        MyApplication app = new MyApplication(controller2, controller);
+        DoctorController controller3=new DoctorController(repo3);
+        MyApplication app = new MyApplication(controller2, controller, controller3);
         app.start();
 
     }
