@@ -6,7 +6,9 @@ public class Results {
     private String test_result;
     private String location;
 
-    public Results(){}
+    public Results(){
+
+    }
 
     public Results(int registration_id, String test_result, String location) {
         this.registration_id = registration_id;

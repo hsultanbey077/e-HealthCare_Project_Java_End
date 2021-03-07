@@ -8,10 +8,12 @@ import java.util.ArrayList;
 public class DepartmentController  {
     private final IDepartmentRepo departmentRepo;
 
+    // Made department controller constructor
     public DepartmentController(IDepartmentRepo departmentRepo) {
         this.departmentRepo = departmentRepo;
     }
 
+    // and the method createDepartment function with returning boolean created or error
     public String createDepartment(String name, String location, String phone, ArrayList<Integer> doctors_id) {
         Department department = new Department(name, location, phone, doctors_id);
         boolean create = departmentRepo.createDepartment(department);
