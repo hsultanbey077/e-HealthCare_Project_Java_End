@@ -26,53 +26,23 @@ public class MyApplication {
         System.out.println("1.admin");
         System.out.println("2.patient");
         int choose = scanner.nextInt();
-        String admin ="Admin";
-        String patient="Patient";
+
+        String admin = " Admin ";
+        String patient = " Patient ";
         if(choose==1){
 
-        while (true) {
-            System.out.println();
-            System.out.println("Welcome to My Application");
-            System.out.println("Select option:");
-            System.out.println("1.Create Registration");
-            System.out.println("2.Create Patient");
-            System.out.println("3.Create Doctor");
-            /**
-             * OPTIONS
-             */
+            int password_input = scanner.nextInt();
+            int password = 123456789;
 
-            System.out.println("0. Exit");
-            System.out.println();
-            try {//it is how works my options
-                System.out.print("Enter option (1-7): ");
-                int option = scanner.nextInt();
-                if (option == 1) {
-                   Registration();
-                }else if(option==2){
-                    createPatient();
-                } else if (option==3){
-                    createDoctor();
-                }else {
-                    break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Input must be integer");
-                scanner.nextLine(); // to ignore incorrect input
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-
-            System.out.println("----------------------------");
-        }
-    }else if(choose==2){
+        if(password_input == password) {
             while (true) {
                 System.out.println();
                 System.out.println("Welcome to My Application");
                 System.out.println("Select option:");
-                System.out.println("1.Give Result");
-                /**
-                 * OPTIONS
-                 */
+                System.out.println("1.Create Registration");
+                System.out.println("2.Create Patient");
+                System.out.println("3.Create Doctor");
+                System.out.println("0. Exit");
 
                 System.out.println("0. Exit");
                 System.out.println();
@@ -80,7 +50,43 @@ public class MyApplication {
                     System.out.print("Enter option (1-7): ");
                     int option = scanner.nextInt();
                     if (option == 1) {
+                        Registration();
+                    } else if (option == 2) {
+                        createPatient();
+                    } else if (option == 3) {
+                        createDoctor();
+                    } else if(option == 0){
+                        System.exit(0);
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Input must be integer");
+                    scanner.nextLine(); // to ignore incorrect input
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
+                System.out.println("----------------------------");
+            }
+        }else {
+            System.out.println("Wrong password detected!\nPlease, try again ");
+        }
+    }else if(choose==2){
+            while (true) {
+                System.out.println();
+                System.out.println("Welcome to My Application");
+                System.out.println("Select option:");
+                System.out.println("1.Give Result");
+                System.out.println("0. Exit");
+                System.out.println();
+                try {//it is how works my options
+                    System.out.print("Enter option (1-7): ");
+                    int option = scanner.nextInt();
+                    if (option == 1) {
                         giveResults();
+                    } else if(option == 0) {
+                       System.exit(0);
                     } else {
                         break;
                     }
@@ -96,7 +102,6 @@ public class MyApplication {
         }
 
     }
-
 
         public void Registration(){
             System.out.println("Please enter your registration");
@@ -160,5 +165,10 @@ public class MyApplication {
 //        String response = controller.createDepartment(name, location, phone, ids);
 //        System.out.println(response);
 //    }
+
+    private <T> void password(T param1){
+
+
+    }
 
 }
