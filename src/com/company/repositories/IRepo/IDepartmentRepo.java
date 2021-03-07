@@ -9,8 +9,6 @@ public interface IDepartmentRepo {
     /**
      * abstract methods for the DepartmentRepo class
      */
-//    boolean createDepartment(Department department);
-//    Department getLocation(String location);
     boolean createDepartment(Department department);
     boolean addDoctors(Department department);
 
