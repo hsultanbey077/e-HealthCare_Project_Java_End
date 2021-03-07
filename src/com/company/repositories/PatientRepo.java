@@ -118,4 +118,45 @@ public class PatientRepo implements IPatientRepo {
         }
         return null;
     }
+
+    @Override
+    public String getResults(int pat_id, int test_id) {
+        Connection con = null;
+        try{
+            con = db.getConnection();
+            String sql="SELECT name,surname FROM patients where patient_id=?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, pat_id);
+            ResultSet rs = st.executeQuery();
+
+            String name=null;
+            String surname=null;
+            if(rs.next()){
+                name=rs.getString("name");
+                surname=rs.getString("surname");
+            }
+            String sql2="SELECT test_id,test_result FROM results where test_id=?";
+            PreparedStatement st2 = con.prepareStatement(sql2);
+            st2.setInt(1, test_id);
+            ResultSet rs2 = st2.executeQuery();
+            String result=null;
+            int id=0;
+            if(rs2.next()){
+                result=rs2.getString("test_result");
+                id=rs2.getInt("test_id");
+            }
+            Method1 main = ((a, b,c,d) -> (a+" "+b+" "+c+" "+d));
+            String response= main.giveTestResult(name,surname,result,id);
+            return response;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+}
+interface Method1{
+    String giveTestResult(String a,String b,String c,int d);
 }

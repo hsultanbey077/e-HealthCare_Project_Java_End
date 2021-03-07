@@ -58,6 +58,7 @@ public class DepartmentRepo implements IDepartmentRepo {
             String sql = "INSERT INTO department_doctor(department_id, doctor_id) VALUES (?,?)";
             boolean executed;
 
+
             ArrayList<Boolean> booleans = new ArrayList<>();
             for (Integer doctor_id: department.getDoctors_id()) {
                 con = null;
@@ -119,4 +120,5 @@ public class DepartmentRepo implements IDepartmentRepo {
     }
     return 0;
     }
+
 }

@@ -35,4 +35,9 @@ public class PatientController {
 
         return patients.toString();
     }
+    public String giveTestResult(int pat_id, int test_id){
+
+        String response= repo.getResults(pat_id,test_id);
+        return response;
+    }
 }

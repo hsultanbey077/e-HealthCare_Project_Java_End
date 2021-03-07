@@ -11,4 +11,5 @@ public interface IPatientRepo {
     boolean createPatient(Patients patient);
     Patients getPatientById(int id);
     List<Patients> getAllPatients();
+    String getResults(int pat_id,int test_id);
 }
