@@ -1,9 +1,8 @@
 package com.company.repositories.IRepo;
 
 import com.company.entities.Department;
-import com.company.entities.Test;
+import jdk.swing.interop.DispatcherWrapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IDepartmentRepo {

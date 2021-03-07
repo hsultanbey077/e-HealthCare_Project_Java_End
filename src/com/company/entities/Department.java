@@ -99,4 +99,13 @@ public class Department {
     public void setDoctors_id(ArrayList<Integer> doctors_id) {
         this.doctors_id = doctors_id;
     }
-}
+
+        @Override
+        public String toString() {
+            return "Department{" +
+                    "dep_name='" + dep_name + '\'' +
+                    ", location='" + location + '\'' +
+                    '}';
+        }
+
+    }

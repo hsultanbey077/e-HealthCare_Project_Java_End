@@ -2,11 +2,9 @@ package com.company.repositories;
 
 import com.company.DB.interfaces.IDB;
 import com.company.entities.Department;
-import com.company.entities.Patients;
 import com.company.repositories.IRepo.IDepartmentRepo;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,43 +43,43 @@ public class DepartmentRepo implements IDepartmentRepo {
         }
         return false;
     }
+
+
+    @Override
+    public boolean addDoctors(Department department) {
+        return false;
+    }
+
     @Override
     public List<Department> getLocation() {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT dep_name,dep_location FROM department";
+            String sql = "SELECT dep_name,dep_location FROM department ";// it is query for getting frontend developers
             Statement st = con.createStatement();
 
             ResultSet rs = st.executeQuery(sql);
             List<Department> departments = new LinkedList<>();
-            while (rs.next()) {
+            while (rs.next()) {//loop for getting information from table
                 Department department = new Department(rs.getString("dep_name"),
                         rs.getString("dep_location"));
 
                 departments.add(department);
             }
-            Location location = ((a,b) -> (a + " " + b ));
-            return departments;
 
+            return departments;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
             try {
-                assert con != null;
                 con.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            return null;
         }
-    }
-
-    @Override
-    public boolean addDoctors(Department department) {
-        return false;
+        return null;
     }
 }
 //    @Override

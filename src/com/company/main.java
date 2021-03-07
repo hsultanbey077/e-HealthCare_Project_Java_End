@@ -27,7 +27,7 @@ public class main {
         RegistrationController controller2=new RegistrationController(repo2);
         DoctorController controller3=new DoctorController(repo3);
         DepartmentController controller4=new DepartmentController(repo4);
-        MyApplication app = new MyApplication(controller2, controller, controller3, controller4);
+        MyApplication app = new MyApplication(controller2, controller, controller3, controller4, controller4);
         app.start();
 
     }

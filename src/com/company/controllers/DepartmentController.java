@@ -25,8 +25,9 @@ public class DepartmentController  {
         } return "ADDED!";
 
     }
-    public List<Department> getLocation(){
-        List<Department> departments= departmentRepo.getLocation();
-        return departments;
+    public String getLocation(){//selecting backend developers method
+        List<Department> department = departmentRepo.getLocation();
+
+        return department.toString();
     }
 }
