@@ -21,11 +21,11 @@ public class PatientRepo implements IPatientRepo {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO Patients(name,surname,expenditure,test_id,test_result) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO Patients(patient_id,name,surname) VALUES (?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
-
-            st.setString(1, patient.getName());
-            st.setString(2, patient.getSurname());
+            st.setInt(1,patient.getPatient_id());
+            st.setString(2, patient.getName());
+            st.setString(3, patient.getSurname());
 
             st.execute();
 

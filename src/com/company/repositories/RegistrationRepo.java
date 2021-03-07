@@ -28,8 +28,8 @@ public class RegistrationRepo implements IRegistrationRepo {
             st.setInt(2,registration.getPatient_id());
             st.setInt(3,registration.getDoctor_id());
             st.setInt(4,registration.getTest_id());
-
-            return st.execute();
+            st.execute();
+            return true;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();

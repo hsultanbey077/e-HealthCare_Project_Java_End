@@ -1,19 +1,18 @@
 package com.company;
 
-import com.company.controllers.DepartmentController;
 import com.company.controllers.PatientController;
+import com.company.controllers.RegistrationController;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyApplication {
-
+    private final RegistrationController controller;
     private final PatientController controller2;
     private final Scanner scanner;
 
-    public MyApplication( PatientController controller2) {
-
+    public MyApplication(RegistrationController controller, PatientController controller2) {
+        this.controller = controller;
         this.controller2 = controller2;
         scanner = new Scanner(System.in);
     }
@@ -33,7 +32,7 @@ public class MyApplication {
             System.out.println("Welcome to My Application");
             System.out.println("Select option:");
             System.out.println("1.Create Registration");
-//fbdsth
+            System.out.println("2.Create Patient");
             /**
              * OPTIONS
              */
@@ -45,6 +44,8 @@ public class MyApplication {
                 int option = scanner.nextInt();
                 if (option == 1) {
                    Registration();
+                }else if(option==2){
+                    createPatient();
                 } else {
                     break;
                 }
@@ -90,7 +91,40 @@ public class MyApplication {
 
     }
 
-//    public void createDepMenu() {
+
+        public void Registration(){
+            System.out.println("Please enter your registration");
+            int reg_id = scanner.nextInt();
+            System.out.println("Please enter your patient");
+            int pat_id = scanner.nextInt();
+            System.out.println("Please enter your doctor");
+            int doctor_id = scanner.nextInt();
+            System.out.println("Please enter your test_id");
+            int test_id = scanner.nextInt();
+            String response = controller.createRegistration(reg_id,pat_id,doctor_id,test_id);
+            System.out.println(response);
+        }
+
+        public void giveResults() {
+            System.out.println("Please enter your patient_id");
+            int pat_id = scanner.nextInt();
+            System.out.println("Please enter your test_id");
+            int test_id = scanner.nextInt();
+
+            String response = controller2.giveTestResult(pat_id,test_id);
+            System.out.println(response);
+        }
+    public void createPatient(){
+        System.out.println("Please enter id");
+        int patient_id = scanner.nextInt();
+        System.out.println("Please enter name");
+        String name = scanner.next();
+        System.out.println("Please enter surname");
+        String surname = scanner.next();
+        String response = controller2.createPatient(patient_id,name,surname);
+        System.out.println(response);
+    }
+    //    public void createDepMenu() {
 //        System.out.println("Please enter name");
 //        String name = scanner.next();
 //
@@ -110,25 +144,5 @@ public class MyApplication {
 //        String response = controller.createDepartment(name, location, phone, ids);
 //        System.out.println(response);
 //    }
-        public void Registration(){
-            System.out.println("Please enter your registration");
-            int reg_id = scanner.nextInt();
-            System.out.println("Please enter your patient");
-            int pat_id = scanner.nextInt();
-            System.out.println("Please enter your doctor");
-            int doctor_id = scanner.nextInt();
-            System.out.println("Please enter your test_id");
-            int test_id = scanner.nextInt();
-        }
-
-        public void giveResults() {
-            System.out.println("Please enter your patient_id");
-            int pat_id = scanner.nextInt();
-            System.out.println("Please enter your test_id");
-            int test_id = scanner.nextInt();
-
-            String response = controller2.giveTestResult(pat_id,test_id);
-            System.out.println(response);
-        }
 
 }
