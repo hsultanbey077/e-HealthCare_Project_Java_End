@@ -61,7 +61,7 @@ public class DepartmentRepo implements IDepartmentRepo {
 
                 departments.add(department);
             }
-
+            Location location = ((a,b) -> (a + " " + b ));
             return departments;
 
         } catch (SQLException throwables) {
@@ -159,6 +159,6 @@ public class DepartmentRepo implements IDepartmentRepo {
 //    }
 //    return 0;
 //    }
-interface location{
+interface Location{
     String location(String name,String location);
 }
