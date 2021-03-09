@@ -52,6 +52,11 @@ public class Department {
         this.doctors_id = doctors_id;
     }
 
+    public Department(int dep_id,ArrayList doctors_id){
+        this.dep_id = dep_id;
+        this.doctors_id = doctors_id;
+    }
+
     /** getter function to get phone*/
     public String getDep_phone() {
         return dep_phone;

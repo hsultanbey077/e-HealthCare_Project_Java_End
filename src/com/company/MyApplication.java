@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.controllers.DepartmentController;
 import com.company.controllers.DoctorController;
 import com.company.controllers.PatientController;
 import com.company.controllers.RegistrationController;
@@ -19,13 +20,12 @@ public class MyApplication {
     private final DoctorController controller3;
     private final Scanner scanner;
 
-    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3) {
+    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3, DepartmentController controller4) {
         this.controller = controller;
         this.controller2 = controller2;
         this.controller3 = controller3;
         scanner = new Scanner(System.in);
     }
-//44
 
     public void start() {//options of my applications
         System.out.println("Please enter who are you?");
@@ -33,17 +33,16 @@ public class MyApplication {
         System.out.println("2.patient");
         int choose = scanner.nextInt();
 
-        String admin = " Admin ";
-        String patient = " Patient ";
         if(choose==1){
 
+            System.out.println("Input password for system admin:\n");
             int password_input = scanner.nextInt();
             int password = 123456789;
 
         if(password_input == password) {
             while (true) {
                 System.out.println();
-                System.out.println("Welcome to My Application");
+                System.out.println(ANSI_GREEN + "Welcome to My Application!" + ANSI_RESET);
                 System.out.println("Select option:");
                 System.out.println("1.Create Registration");
                 System.out.println("2.Create Patient");
@@ -60,7 +59,7 @@ public class MyApplication {
                     } else if (option == 3) {
                         createDoctor();
                     } else if(option == 0){
-                        System.exit(0);
+                        start();
                     } else {
                         break;
                     }
@@ -74,12 +73,12 @@ public class MyApplication {
                 System.out.println("----------------------------");
             }
         }else {
-            System.out.println("Wrong password detected!\nPlease, try again ");
+            System.out.println(ANSI_RED + "Wrong password detected!\nPlease, try again " + ANSI_RESET);
         }
     }else if(choose==2){
             while (true) {
                 System.out.println();
-                System.out.println("Welcome to My Application");
+                System.out.println("Welcome to My Application for patients\n Choose options:");
                 System.out.println("Select option:");
                 System.out.println("1.Give Result");
                 System.out.println("0. Exit");
@@ -90,7 +89,7 @@ public class MyApplication {
                     if (option == 1) {
                         giveResults();
                     } else if(option == 0) {
-                       System.exit(0);
+                        start();
                     } else {
                         break;
                     }
@@ -108,14 +107,19 @@ public class MyApplication {
     }
 
         public void Registration(){
+            // надо поменять на сериал в постгре
             System.out.println("Please enter your registration");
             int reg_id = scanner.nextInt();
+
             System.out.println("Please enter your patient");
             int pat_id = scanner.nextInt();
+
             System.out.println("Please enter your doctor");
             int doctor_id = scanner.nextInt();
+
             System.out.println("Please enter your test_id");
             int test_id = scanner.nextInt();
+
             String response = controller.createRegistration(reg_id,pat_id,doctor_id,test_id);
             System.out.println(response);
         }
@@ -170,9 +174,5 @@ public class MyApplication {
 //        System.out.println(response);
 //    }
 
-    private <T> void password(T param1){
-
-
-    }
 
 }

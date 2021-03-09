@@ -3,6 +3,7 @@ package com.company.repositories;
 import com.company.DB.interfaces.IDB;
 import com.company.entities.Doctors;
 import com.company.repositories.IRepo.IDoctorsRepo;
+import com.company.repositories.DepartmentRepo;
 
 import java.sql.*;
 import java.util.LinkedList;
@@ -32,12 +33,25 @@ public class DoctorRepo implements IDoctorsRepo {
             con = db.getConnection();
             String sql = "INSERT INTO Doctors(doc_id,doc_name,doc_surname) VALUES (?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
+
             st.setInt(1,doctor.getDoc_id());
+            int a = 0;
             st.setString(2, doctor.getDoc_name());
             st.setString(3, doctor.getDoc_surname());
 
-
             st.execute();
+
+//            ResultSet rs = st.executeQuery();
+//            if(rs.next()){
+//                a = rs.getInt("doc_id");
+//            }
+//
+//            DepartmentRepo dp = new DepartmentRepo();
+//
+//            String sql_2 = "SELECT doc_id FROM Doctors WHERE doc_id = ?";
+//            PreparedStatement st_2 = con.prepareStatement(sql_2);
+//            st_2.setInt(1,doctor.getDoc_id());
+//            st_2.execute();
 
             return true;
 
