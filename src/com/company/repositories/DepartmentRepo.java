@@ -63,7 +63,6 @@ public class DepartmentRepo implements IDepartmentRepo {
                 departments.add(department);
             }
             return departments;
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -76,6 +75,7 @@ public class DepartmentRepo implements IDepartmentRepo {
                 throwables.printStackTrace();
             }
         }
+        return null;
     }
 
     @Override
