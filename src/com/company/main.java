@@ -18,16 +18,16 @@ import com.company.repositories.RegistrationRepo;
 public class main {
     public static void main(String[] args) throws Exception {
 
-        IDB db = new DB();      // creating object of DB
-        IPatientRepo repo = new PatientRepo(db);      // 
+        IDB db = new DB();
+        IPatientRepo repo=new PatientRepo(db);
         IRegistrationRepo repo2 = new RegistrationRepo(db);
         IDoctorsRepo repo3=new DoctorRepo(db);
         IDepartmentRepo repo4 = new DepartmentRepo(db);
         PatientController controller = new PatientController(repo);
-        RegistrationController controller2 = new RegistrationController(repo2);
-        DoctorController controller3 = new DoctorController(repo3);
-        DepartmentController controller4 = new DepartmentController(repo4);
-        MyApplication app = new MyApplication(controller2, controller, controller3, controller4);
+        RegistrationController controller2=new RegistrationController(repo2);
+        DoctorController controller3=new DoctorController(repo3);
+        DepartmentController controller4=new DepartmentController(repo4);
+        MyApplication app = new MyApplication(controller2, controller, controller3, controller4, controller4);
         app.start();
 
     }
