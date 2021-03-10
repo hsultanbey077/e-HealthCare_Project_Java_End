@@ -6,7 +6,6 @@ import com.company.controllers.PatientController;
 import com.company.controllers.RegistrationController;
 
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class MyApplication {
@@ -47,7 +46,7 @@ public class MyApplication {
         if(password_input == password) {
             while (true) {
                 System.out.println();
-                System.out.println("Welcome to My Application");
+                System.out.println(ANSI_GREEN + "Welcome to My Application" + ANSI_RESET);
                 System.out.println("Select option:");
                 System.out.println("1.Create Registration");
                 System.out.println("2.Create Patient");
@@ -78,7 +77,7 @@ public class MyApplication {
                 System.out.println("----------------------------");
             }
         }else {
-            System.out.println("Wrong password detected!\nPlease, try again ");
+            System.out.println(ANSI_RED + "Wrong password detected!\nPlease, try again " + ANSI_RESET);
         }
     }else if(choose==2){
             while (true) {
@@ -97,7 +96,7 @@ public class MyApplication {
                     } else if(option==2){
                             departmentLocations();
                     }else if(option == 0) {
-                       System.exit(0);
+                       start();
                     } else {
                         break;
                     }
