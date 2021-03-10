@@ -55,6 +55,9 @@ public class Results {
         this.location = location;
     }
 
+    /**
+     * Method toString to output result for getAll method
+     * */
     @Override
     public String toString() {
         return "Results{" +

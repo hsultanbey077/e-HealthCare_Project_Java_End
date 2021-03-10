@@ -7,21 +7,21 @@ public class Test {
     private int cost;
 
     //default constructor
-  public Test(){}
+    public Test(){}
 
-    //
     public Test(String test_date, String test_name, int cost) {
         this.test_date = test_date;
         this.test_name = test_name;
         this.cost = cost;
     }
-
+    //with id when it is not serial
     public Test(int test_id, String test_date, String test_name) {
         this.test_id = test_id;
         this.test_date = test_date;
         this.test_name = test_name;
     }
 
+    // to calculate with cost for one test
     public Test(int test_id, String test_date, String test_name, int cost) {
         this.test_id = test_id;
         this.test_date = test_date;
@@ -41,23 +41,22 @@ public class Test {
     public void setTest_date(String test_date) {
         this.test_date = test_date;
     }
-
     public int getCost() {
         return cost;
     }
-
     public void setCost(int cost) {
         this.cost = cost;
     }
-
     public String getTest_name() {
         return test_name;
     }
-
     public void setTest_name(String test_name) {
         this.test_name = test_name;
     }
 
+    /**
+     * Method toString to output result for getAll method
+     * */
     @Override
     public String toString() {
         return "Test{" +

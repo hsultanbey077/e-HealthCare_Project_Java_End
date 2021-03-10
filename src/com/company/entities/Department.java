@@ -105,6 +105,7 @@ public class Department {
         this.doctors_id = doctors_id;
     }
 
+    //Get all departments from the database
         @Override
         public String toString() {
             return "Department{" +
@@ -112,5 +113,4 @@ public class Department {
                     ", location='" + location + '\'' +
                     '}';
         }
-
     }

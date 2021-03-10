@@ -29,14 +29,13 @@ public class MyApplication {
     }
 
     public void start() {//options of my applications
-        System.out.println("Please enter who are you?");
+        System.out.println("Please, enter who are you?");
         System.out.println("1.Admin");
         System.out.println("2.Patient");
         int choose = scanner.nextInt();
 
-
         if(choose==1){
-            System.out.println("Please enter your password");
+            System.out.println(ANSI_GREEN + "Please enter your password" + ANSI_RESET);
             int password_input = scanner.nextInt();
             int password = 123456789;
 
@@ -44,7 +43,7 @@ public class MyApplication {
             while (true) {
                 System.out.println();
                 System.out.println(ANSI_GREEN + "Welcome to My Application" + ANSI_RESET);
-                System.out.println("Select option:");
+                System.out.println("---- Select option: -----");
                 System.out.println("1.Create Registration");
                 System.out.println("2.Create Patient");
                 System.out.println("3.Create Doctor");
@@ -85,7 +84,7 @@ public class MyApplication {
     }else if(choose==2){
             while (true) {
                 System.out.println();
-                System.out.println("Welcome to My Application");
+                System.out.println(ANSI_GREEN + "Welcome to My Application" + ANSI_RESET);
                 System.out.println("Select option:");
                 System.out.println("1.Give Result");
                 System.out.println("2.Get location");
@@ -169,8 +168,8 @@ public class MyApplication {
         String response = controller5.createTest(test_id,date,test_name);
         System.out.println(response);
     }
-    public void departmentLocations() {
 
+    public void departmentLocations() {
         String response = controller4.getLocation();
         System.out.println(response);
     }
@@ -196,8 +195,7 @@ public class MyApplication {
 //    }
 
     private <T> void password(T param1){
-
-
+        System.out.println("Here is nothing!");
     }
 
 }

@@ -44,6 +44,9 @@ public class Patients {
         this.surname = surname;
     }
 
+    /**
+     * Method toString to output result for getAll method
+     * */
     @Override
     public String toString() {
         return "Patients{" +

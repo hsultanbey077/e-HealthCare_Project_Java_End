@@ -50,6 +50,9 @@ public class Registration {
         this.registration_id = registration_id;
     }
 
+    /**
+     * Method toString to output result for getAll method
+     * */
     @Override
     public String toString() {
         return "Registration{" +

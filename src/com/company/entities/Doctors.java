@@ -1,20 +1,26 @@
 package com.company.entities;
 
+//entities
 public class Doctors {
     private int doc_id;
     private String doc_name;
     private String doc_surname;
 
-
+    // DEFAULT CONSTRUCTOR, It is not necessary also to add this one it would be added by IDE
     public Doctors(){
 
     }
-
+    /**
+     * constructor parameters without id
+     * */
     public Doctors(String doc_name, String doc_surname){
         setDoc_name(doc_name);
         setDoc_surname(doc_surname);
 
     }
+    /**
+     * constructor parameters with id
+     * */
     public Doctors(int doc_id,String doc_name, String doc_surname){
         setDoc_id(doc_id);
         setDoc_name(doc_name);
@@ -22,6 +28,9 @@ public class Doctors {
 
     }
 
+    /**
+     * All getters and setters
+     * */
     public int getDoc_id() {
         return doc_id;
     }
@@ -41,6 +50,9 @@ public class Doctors {
         this.doc_surname = doc_surname;
     }
 
+    /**
+     * Method toString to output result for getAll method
+     * */
     @Override
     public String toString() {
         return "Doctors{" +
