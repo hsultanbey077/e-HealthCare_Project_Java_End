@@ -21,14 +21,13 @@ public class MyApplication {
     private final DepartmentController controller4;
     private final Scanner scanner;
 
-    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3, DepartmentController controller4, DepartmentController controller41) {
+    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3, DepartmentController controller41) {
         this.controller = controller;
         this.controller2 = controller2;
         this.controller3 = controller3;
         this.controller4 = controller41;
         scanner = new Scanner(System.in);
     }
-//44
 
     public void start() {//options of my applications
         System.out.println("Please enter who are you?");
