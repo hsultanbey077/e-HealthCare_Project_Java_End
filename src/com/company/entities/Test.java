@@ -16,6 +16,12 @@ public class Test {
         this.cost = cost;
     }
 
+    public Test(int test_id, String test_date, String test_name) {
+        this.test_id = test_id;
+        this.test_date = test_date;
+        this.test_name = test_name;
+    }
+
     public Test(int test_id, String test_date, String test_name, int cost) {
         this.test_id = test_id;
         this.test_date = test_date;

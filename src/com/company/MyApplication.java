@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.controllers.DepartmentController;
-import com.company.controllers.DoctorController;
-import com.company.controllers.PatientController;
-import com.company.controllers.RegistrationController;
+import com.company.controllers.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -19,13 +16,15 @@ public class MyApplication {
     private final PatientController controller2;
     private final DoctorController controller3;
     private final DepartmentController controller4;
+    private final TestController controller5;
     private final Scanner scanner;
 
-    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3, DepartmentController controller41) {
+    public MyApplication(RegistrationController controller, PatientController controller2, DoctorController controller3, DepartmentController controller41, TestController controller5) {
         this.controller = controller;
         this.controller2 = controller2;
         this.controller3 = controller3;
         this.controller4 = controller41;
+        this.controller5 = controller5;
         scanner = new Scanner(System.in);
     }
 
@@ -49,7 +48,8 @@ public class MyApplication {
                 System.out.println("1.Create Registration");
                 System.out.println("2.Create Patient");
                 System.out.println("3.Create Doctor");
-                System.out.println("4. Go back to the main menu");
+                System.out.println("4.Record Test");
+                System.out.println("5. Go back to the main menu");
                 System.out.println("0. Exit");
                 System.out.println();
                 try {//it is how works my options
@@ -62,6 +62,8 @@ public class MyApplication {
                     } else if (option == 3) {
                         createDoctor();
                     } else if(option==4){
+                        createTest();
+                    }else if(option==5){
                         start();
                     }else if(option == 0){
                         System.exit(0);
@@ -154,6 +156,17 @@ public class MyApplication {
         System.out.println("Please enter surname");
         String surname=scanner.next();
         String response = controller3.createDoctor(doc_id,name,surname);
+        System.out.println(response);
+    }
+    public void createTest(){
+        System.out.println("Please enter id");
+        int test_id=scanner.nextInt();
+        System.out.println("Please enter date");
+        String date = scanner.next();
+        System.out.println("Please enter test name");
+        String test_name=scanner.next();
+
+        String response = controller5.createTest(test_id,date,test_name);
         System.out.println(response);
     }
     public void departmentLocations() {

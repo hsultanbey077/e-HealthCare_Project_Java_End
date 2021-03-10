@@ -27,6 +27,7 @@ public class TestRepo implements ITestRepo {
 
             st.setInt(1, test.getTest_id());
             st.setString(2, test.getTest_date());
+            st.setString(3, test.getTest_name());
 
 
             return st.execute();

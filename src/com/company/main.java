@@ -2,18 +2,10 @@ package com.company;
 
 import com.company.DB.DB;
 import com.company.DB.interfaces.IDB;
-import com.company.controllers.DepartmentController;
-import com.company.controllers.DoctorController;
-import com.company.controllers.PatientController;
-import com.company.controllers.RegistrationController;
-import com.company.repositories.DepartmentRepo;
-import com.company.repositories.DoctorRepo;
-import com.company.repositories.IRepo.IDepartmentRepo;
-import com.company.repositories.IRepo.IDoctorsRepo;
-import com.company.repositories.IRepo.IPatientRepo;
-import com.company.repositories.IRepo.IRegistrationRepo;
-import com.company.repositories.PatientRepo;
-import com.company.repositories.RegistrationRepo;
+import com.company.controllers.*;
+import com.company.entities.Test;
+import com.company.repositories.*;
+import com.company.repositories.IRepo.*;
 
 public class main {
     public static void main(String[] args) throws Exception {
@@ -23,11 +15,13 @@ public class main {
         IRegistrationRepo repo2 = new RegistrationRepo(db);
         IDoctorsRepo repo3=new DoctorRepo(db);
         IDepartmentRepo repo4 = new DepartmentRepo(db);
+        ITestRepo repo5=new TestRepo(db);
+        TestController controller5= new TestController(repo5);
         PatientController controller = new PatientController(repo);
         RegistrationController controller2=new RegistrationController(repo2);
         DoctorController controller3=new DoctorController(repo3);
         DepartmentController controller4=new DepartmentController(repo4);
-        MyApplication app = new MyApplication(controller2, controller, controller3, controller4);
+        MyApplication app = new MyApplication(controller2, controller, controller3, controller4, controller5);
         app.start();
 
     }
