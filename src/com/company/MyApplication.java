@@ -32,14 +32,13 @@ public class MyApplication {
 
     public void start() {//options of my applications
         System.out.println("Please enter who are you?");
-        System.out.println("1.admin");
-        System.out.println("2.patient");
+        System.out.println("1.Admin");
+        System.out.println("2.Patient");
         int choose = scanner.nextInt();
 
-        String admin = " Admin ";
-        String patient = " Patient ";
-        if(choose==1){
 
+        if(choose==1){
+            System.out.println("Please enter your password");
             int password_input = scanner.nextInt();
             int password = 123456789;
 
@@ -51,6 +50,7 @@ public class MyApplication {
                 System.out.println("1.Create Registration");
                 System.out.println("2.Create Patient");
                 System.out.println("3.Create Doctor");
+                System.out.println("4. Go back to the main menu");
                 System.out.println("0. Exit");
                 System.out.println();
                 try {//it is how works my options
@@ -62,7 +62,9 @@ public class MyApplication {
                         createPatient();
                     } else if (option == 3) {
                         createDoctor();
-                    } else if(option == 0){
+                    } else if(option==4){
+                        start();
+                    }else if(option == 0){
                         System.exit(0);
                     } else {
                         break;
@@ -86,7 +88,7 @@ public class MyApplication {
                 System.out.println("Select option:");
                 System.out.println("1.Give Result");
                 System.out.println("2.Get location");
-                System.out.println("0. Exit");
+                System.out.println("0. Go back to the main menu");
                 System.out.println();
                 try {//it is how works my options
                     System.out.print("Enter option (1-7): ");

@@ -11,6 +11,8 @@ public interface IDoctorsRepo {
     boolean createDoctor(Doctors doctor);
     Doctors getDoctorById(int patient_id);
     List<Doctors> getAllDoctors();
+
+    Doctors deleteDoctorByID(int id);
 //    Doctors deleteDoctorByID(int id);
 
 }
